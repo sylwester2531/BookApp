@@ -4,4 +4,6 @@
     <string name="state_no_internet">No Internet Connection!</string>
     <string name="state_empty_view">Type a book name, then press search!</string>
     <string name="hint">Search books here...</string>
+    <string name="no_books">No books found.</string>
+
 </resources>

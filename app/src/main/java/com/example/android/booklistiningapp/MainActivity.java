@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mRecyclerAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private TextView mEmptyStateTextView;
 
     private boolean isClick;
 
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity
         state = (TextView) findViewById(R.id.state_text_view);
         state.setText(getString(R.string.state_empty_view));
         state.setVisibility(View.VISIBLE);
+        mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
+
 
         final EditText bookName = (EditText) findViewById(R.id.book_name);
 
@@ -158,6 +161,7 @@ public class MainActivity extends AppCompatActivity
     public void onLoadFinished(android.content.Loader<List<Book>> loader, List<Book> books) {
         ProgressBar loadingSpinner = (ProgressBar) findViewById(R.id.progress_bar);
         loadingSpinner.setVisibility(GONE);
+        mEmptyStateTextView.setText(R.string.no_books);
 
         mRecyclerView.setVisibility(View.VISIBLE);
         mRecyclerAdapter = new BookRecyclerAdapter(MainActivity.this, new ArrayList<Book>());
